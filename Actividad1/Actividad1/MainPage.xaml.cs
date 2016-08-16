@@ -26,5 +26,11 @@ namespace Actividad1
         {
             this.InitializeComponent();
         }
+
+        private void btnClick(object sender, RoutedEventArgs e)
+        {
+            textBox.Text = "Hoa Juan Benjamin Camacho Castro";
+            textBox.Visibility = Visibility.Visible;
+        }
     }
 }

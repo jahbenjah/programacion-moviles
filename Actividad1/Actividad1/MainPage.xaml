@@ -8,8 +8,20 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="141,265,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="141,356,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <Button x:Name="btnClickMe"
+                Content="Presionar para saludar" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Margin="0" 
+                Click="btnClick"/>
+        <TextBox 
+            x:Name="textBox" 
+            HorizontalAlignment="Left" 
+            Margin="141,356,0,0" 
+            TextWrapping="Wrap"
+            Text="TextBox"
+            VerticalAlignment="Center"
+            Visibility="Collapsed"/>
 
     </Grid>
 </Page>
