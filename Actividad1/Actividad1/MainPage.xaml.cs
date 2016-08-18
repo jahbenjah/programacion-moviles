@@ -26,11 +26,16 @@ namespace Actividad1
         {
             this.InitializeComponent();
         }
+        // Variable para contar el numero de Clics
+
+        int count = 0;
 
         private void btnClick(object sender, RoutedEventArgs e)
         {
-            textBox.Text = "Hoa Juan Benjamin Camacho Castro";
+            count++;
+            textBox.Text = "Hola Juan Benjamin Camacho Castro :" +count +" Clics";
             textBox.Visibility = Visibility.Visible;
+           
         }
     }
 }

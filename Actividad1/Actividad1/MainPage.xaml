@@ -7,21 +7,39 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="btnClickMe"
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Light" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button 
+                x:Name="btnClickMe"
+                Grid.Row="0" Grid.Column="1" Margin="10"
                 Content="Presionar para saludar" 
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Center" 
-                Margin="0" 
-                Click="btnClick"/>
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Stretch" 
+                Click="btnClick" 
+                ToolTipService.ToolTip="Al presionar este botón saldra un saludo"/>
         <TextBox 
-            x:Name="textBox" 
-            HorizontalAlignment="Left" 
-            Margin="141,356,0,0" 
+            x:Name="textBox"      
+           Grid.Row="1" Grid.Column="1" Margin="10"
+           Grid.RowSpan="2"
             TextWrapping="Wrap"
             Text="TextBox"
             VerticalAlignment="Center"
-            Visibility="Collapsed"/>
-
+            HorizontalAlignment="Stretch"
+            Visibility="Collapsed" FontSize="48" IsReadOnly="True" TextAlignment="Center" />
+        
+          
+        
     </Grid>
+
+
+
 </Page>
