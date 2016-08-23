@@ -35,9 +35,7 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Stretch"
             Visibility="Collapsed" FontSize="48" IsReadOnly="True" TextAlignment="Center" />
-        
-          
-        
+     
     </Grid>
 
 
