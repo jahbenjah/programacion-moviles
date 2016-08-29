@@ -55,8 +55,21 @@ namespace Actividad2
 
         private async  void BtnCalcular_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new MessageDialog("Your message here");
-            await dialog.ShowAsync();
+          //  while(txtCuenta.Text.Length > 0 )
+            try
+            {
+               int cuenta = Int32.Parse(txtCuenta.Text);
+               int propina = int.Parse(cmbPropina.);
+               // int clientes = int.Parse(cmbPersonas.SelectedValue.ToString());
+                var dialog = new MessageDialog("Your message here"+" " +propina);
+                await dialog.ShowAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
            
         }
     }
