@@ -27,7 +27,7 @@
                 Click="btnClick" 
                 ToolTipService.ToolTip="Al presionar este botón saldra un saludo"/>
         <TextBox 
-            x:Name="textBox"      
+            x:Name="txtMgs"      
            Grid.Row="1" Grid.Column="1" Margin="10"
            Grid.RowSpan="2"
             TextWrapping="Wrap"

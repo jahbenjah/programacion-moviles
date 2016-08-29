@@ -7,7 +7,37 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="720" VerticalAlignment="Bottom">
+        <StackPanel Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="Ingrese el total de la cuenta: $" IsReadOnly="True"/>
+                 <TextBox x:Name="txtCuenta" Text="TextBox"/>
+            </StackPanel>
+            
+                
+                <ComboBox x:Name="cmbPropina" Header="Selecciona el % de  propina" >
+                    <ComboBoxItem IsSelected="True">10%</ComboBoxItem>
+                    <!--Por default el porcentaje de la propina es 10% -->
+                    <ComboBoxItem>15%</ComboBoxItem>
+                </ComboBox>
+           
+            
+               
+                <ComboBox x:Name="cmbPersonas" Header="Seleccione el número de clientes"/>
+         
+
+
+        <Button x:Name="btnCalcular"  HorizontalAlignment="Center">
+                <Button.Content>
+                    <TextBlock>Calcular total por persona</TextBlock>
+                </Button.Content>
+                
+            </Button>
+            
+
+        </StackPanel>
+      
+
 
     </Grid>
 </Page>
