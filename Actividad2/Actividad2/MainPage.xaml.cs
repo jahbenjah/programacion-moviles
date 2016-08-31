@@ -55,19 +55,22 @@ namespace Actividad2
 
         private async  void BtnCalcular_Click(object sender, RoutedEventArgs e)
         {
-          //  while(txtCuenta.Text.Length > 0 )
+      
             try
             {
-               int cuenta = Int32.Parse(txtCuenta.Text);
-               int propina = int.Parse(cmbPropina.);
-               // int clientes = int.Parse(cmbPersonas.SelectedValue.ToString());
-                var dialog = new MessageDialog("Your message here"+" " +propina);
+                double cuenta = double.Parse(txtCuenta.Text);
+                int propina = int.Parse((cmbPropina.SelectedItem as ComboBoxItem).Content as String);
+                int clientes =(int) cmbPersonas.SelectedItem;
+                
+                var dialog = new MessageDialog("La cuenta es de: $ "+cuenta+ ".\n La propina  :" +propina + "%.\n  El numero de clientes " + clientes);
                 await dialog.ShowAsync();
+                txtPagoPersonal.Visibility = Visibility.Visible;
+                txtPagoPersonal.Text = $"El pago por persona es de ${Math.Round((cuenta*(1+propina/100.0))/clientes,2)} pesos";
             }
             catch (Exception)
             {
-
-                throw;
+                var dialog2 = new MessageDialog("Por favor revise el total. Deben se un número.");
+                await dialog2.ShowAsync();
             }
            
            
