@@ -26,9 +26,12 @@ namespace Actividad6
         private async static void DescargarPaginaAsync()
         {
             /* Solicitud a la API de Flickr
+             * https://www.flickr.com/services/api/flickr.photos.getRecent.html
             * methodo:flickr.photos.getRecent
             * apikey:a96dc9bef0f55c1b09c73f2d6bc1fd67
             * formato de salida : json (default xml)
+            *  
+            * 
             */
             string page = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=a96dc9bef0f55c1b09c73f2d6bc1fd67&format=json&nojsoncallback=1&api_sig=afff628faca3c2041504d5f6517f9637";
 
