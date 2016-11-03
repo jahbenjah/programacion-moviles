@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Actividad7.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Actividad7"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Actividad7.Modelos"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:DataType="data:Photo" x:Key="TemplatePhoto">
+            <StackPanel HorizontalAlignment="Center">
+               <!-- <Image Width="150" Height=" 150" Source="{x:Bind RutaPortada}"/> -->
+                <TextBox Text="{x:Bind Title}" HorizontalAlignment="Center" BorderBrush="{x:Null}" IsReadOnly="True"/>
+                <TextBox Text="{x:Bind Owner}" HorizontalAlignment="Center" BorderBrush="{x:Null}" IsReadOnly="True"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <TextBlock Text="Elija su disco favorito" HorizontalAlignment="Center" FontSize="32"></TextBlock>
+            <GridView ItemsSource="{x:Bind photos}"
+                  IsItemClickEnabled="True" 
+                  ItemTemplate="{StaticResource TemplatePhoto}">
+            </GridView>
+          </StackPanel>
+    </Grid>
+</Page>

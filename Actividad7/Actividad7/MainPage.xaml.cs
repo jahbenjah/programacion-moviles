@@ -1,39 +1,68 @@
-﻿using Actividad6.Modelos;
+﻿using Actividad7.Modelos;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net.Http;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
-namespace Actividad6
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+
+namespace Actividad7
 {
-    class Program
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class MainPage : Page
     {
-        static void Main(string[] args)
+
+
+        List<Photo> photos;
+
+        public MainPage()
         {
-            //Creamos una nueva tarea asincrona con la acción DescargarPaginaAsync.(Expresion Lambda)
+            this.InitializeComponent();
+
+            photos = new List<Photo>();
+        }
+
+
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+
             Task task = new Task(DescargarPaginaAsync);
             //Ejecutamos la tarea
             task.Start();
-
-            Console.WriteLine("Consultando la API de Flickr");
-            Console.WriteLine("Esperando respuesta....");
             // Esperamos a que se complete la tarea
             task.Wait();
-            Console.ReadLine();
-
         }
+
 
         private async static void DescargarPaginaAsync()
         {
             /* Solicitud a la API de Flickr
              * https://www.flickr.com/services/api/flickr.photos.getRecent.html
             * methodo:flickr.photos.getRecent
-            * apikey:6c9ed3a64f891884f5e9547eb1836e9e
+            * apikey:a96dc9bef0f55c1b09c73f2d6bc1fd67
             * formato de salida : json (default xml)
             *  
             * 
             */
-            string page = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=6c9ed3a64f891884f5e9547eb1836e9e&format=json&nojsoncallback=1";
+            string page = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=fd52e211b61dfadc2934405aa6854d5c&format=json&nojsoncallback=1&api_sig=529c8bb45bcf2689d6b86f6f6e61caab";
 
             // HttpClient para solicitar la pagina
             // usin sirver para que .netframework gsetione los objetos IDisposable de forma automatica.
@@ -48,27 +77,23 @@ namespace Actividad6
                 // ... Guardamos el JSON como cadena
                 string resultado = await contenido.ReadAsStringAsync();
                 
-                
                 // Convertimos el JSON a un Objeto GetRecent con ayuda de la libreria Newtonsoft.Json
-
                 GetRecent feed = JsonConvert.DeserializeObject<GetRecent>(resultado);
 
+                List<string> LigasFotos = new List<string>();
 
-                //Impirmimos la cantidad de photos recibidad y la URL
 
-                Console.WriteLine("El estado de la solicitud : {0}", feed.Stat);
-                Console.WriteLine("Página actual: {0}", feed.Photos.Page);
-                Console.WriteLine("Total de paginas de fotos actuales: {0}", feed.Photos.Pages);
-                Console.WriteLine("Fotos por página: {0}", feed.Photos.PerPage);
-                Console.WriteLine("Total de fotos  recientes recibidadas: {0}", feed.Photos.Total);
-                string s;
                 foreach (Photo f in feed.Photos.Photo)
                 {
-                    s = f.GetStringUrl();
-
-                    Console.WriteLine(s);
+                    LigasFotos.Add(f.GetStringUrl());
                 }
+
+              
+
             }
-        }
-    }
+
+
+          }
+     }
 }
+          
