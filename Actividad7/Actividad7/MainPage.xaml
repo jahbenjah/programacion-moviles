@@ -11,20 +11,19 @@
     <Page.Resources>
         <DataTemplate x:DataType="data:Photo" x:Key="TemplatePhoto">
             <StackPanel HorizontalAlignment="Center">
-               <!-- <Image Width="150" Height=" 150" Source="{x:Bind RutaPortada}"/> -->
-                <TextBox Text="{x:Bind Title}" HorizontalAlignment="Center" BorderBrush="{x:Null}" IsReadOnly="True"/>
+                <Image Width="150" Height=" 150" Source="{x:Bind URL}"/>
+                <TextBox Text="{x:Bind Descripcion}" HorizontalAlignment="Center" BorderBrush="{x:Null}" IsReadOnly="True"/>
                 <TextBox Text="{x:Bind Owner}" HorizontalAlignment="Center" BorderBrush="{x:Null}" IsReadOnly="True"/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <TextBlock Text="Elija su disco favorito" HorizontalAlignment="Center" FontSize="32"></TextBlock>
+            <TextBlock Text="Fotos Recientes de Flickr" HorizontalAlignment="Center" FontSize="32"></TextBlock>
             <GridView ItemsSource="{x:Bind photos}"
                   IsItemClickEnabled="True" 
                   ItemTemplate="{StaticResource TemplatePhoto}">
             </GridView>
-          </StackPanel>
-    </Grid>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

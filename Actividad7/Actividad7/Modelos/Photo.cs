@@ -20,6 +20,22 @@ namespace Actividad7.Modelos
         public string IsFriend { get; set; }
         public string IsFamily { get; set; }
 
+        public string Descripcion
+        {
+            get
+            {   if (Title.Length <= 10)
+                    return Title;
+                else
+                    return Title.Substring(0, 10);
+            }
+
+        }
+
+        public string URL { get {
+                return GetStringUrl();
+            }
+
+        } 
         public override string ToString()
         {
             return "ID: " + Id + " Owner:" + Owner + " Secret: " + Secret + " Secret: " + Secret + " Server: " + Server + " Farm: " + Farm + " Title: " + Title + " IsPublic: " + IsPublic + " IsFriend: " + IsFriend + " IsFamily: " + IsFamily;
