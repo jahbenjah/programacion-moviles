@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="Actividad8.ImagePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Actividad8"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Actividad8.Modelos"
+    mc:Ignorable="d">
+
+
+
+    <Page.Resources>
+        <DataTemplate x:DataType="data:Photo" x:Key="TemplatePhoto">
+            <StackPanel HorizontalAlignment="Center">
+                <Image Width="150" Height=" 150" Source="{x:Bind URL}"/>
+                <TextBox Text="{x:Bind Descripcion}" HorizontalAlignment="Center" BorderBrush="{x:Null}" IsReadOnly="True"/>
+                <TextBox Text="{x:Bind Owner}" HorizontalAlignment="Center" BorderBrush="{x:Null}" IsReadOnly="True"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="37,28,0,0" VerticalAlignment="Top" Click="button_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="129,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="36,70,0,0" VerticalAlignment="Top" Width="244"/>
+
+    </Grid>
+</Page>
