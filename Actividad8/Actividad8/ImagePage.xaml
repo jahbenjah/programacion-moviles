@@ -8,7 +8,18 @@
     xmlns:data="using:Actividad8.Modelos"
     mc:Ignorable="d">
 
-
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Compartir"
+                    Command="{Binding}"
+                    CommandParameter="Compartir por Email" Width="114" Height="32">
+                    </Button>
+                </StackPanel>
+            </CommandBar.Content>
+        </CommandBar>
+    </Page.BottomAppBar>
 
     <Page.Resources>
         <DataTemplate x:DataType="data:Photo" x:Key="TemplatePhoto">

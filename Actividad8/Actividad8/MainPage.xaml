@@ -11,9 +11,9 @@
         <CommandBar>
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Reserve Room"
+                    <Button Content="Recargar"
                     Command="{Binding}"
-                    CommandParameter="make a reservation" Width="114" Height="32">
+                    CommandParameter="Recargar Imágenes" Width="114" Height="32">
                     </Button>
                 </StackPanel>
             </CommandBar.Content>
