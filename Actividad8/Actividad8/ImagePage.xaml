@@ -10,31 +10,19 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <CommandBar.Content>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Compartir"
-                    Command="{Binding}"
-                    CommandParameter="Compartir por Email" Width="114" Height="32">
-                    </Button>
-                </StackPanel>
-            </CommandBar.Content>
+            <AppBarToggleButton Icon="ReShare" Label="Share" Click="ShareAppBarButton_Click" />
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Page.Resources>
-        <DataTemplate x:DataType="data:Photo" x:Key="TemplatePhoto">
-            <StackPanel HorizontalAlignment="Center">
-                <Image Width="150" Height=" 150" Source="{x:Bind URL}"/>
-                <TextBox Text="{x:Bind Descripcion}" HorizontalAlignment="Center" BorderBrush="{x:Null}" IsReadOnly="True"/>
-                <TextBox Text="{x:Bind Owner}" HorizontalAlignment="Center" BorderBrush="{x:Null}" IsReadOnly="True"/>
-            </StackPanel>
-        </DataTemplate>
-    </Page.Resources>
     
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="37,28,0,0" VerticalAlignment="Top" Click="button_Click"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="129,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="36,70,0,0" VerticalAlignment="Top" Width="244"/>
+    
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="button" Content="Regresar" HorizontalAlignment="Left"  Click="button_Click"/>
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Imagen Seleccionada" />
 
-    </Grid>
+        </StackPanel>
+        <Image x:Name="image" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+    </StackPanel>
 </Page>
