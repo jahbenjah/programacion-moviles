@@ -9,14 +9,8 @@
     mc:Ignorable="d">
     <Page.BottomAppBar>
         <CommandBar>
-            <CommandBar.Content>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Reserve Room"
-                    Command="{Binding}"
-                    CommandParameter="make a reservation" Width="114" Height="32">
-                    </Button>
-                </StackPanel>
-            </CommandBar.Content>
+
+            <AppBarToggleButton Icon="RepeatAll" Label="Recargar" Click="RecargarAppBarButton_Click" />
         </CommandBar>
     </Page.BottomAppBar>
     <Page.Resources>

@@ -59,5 +59,17 @@ namespace Actividad8
             Frame.Navigate(typeof(ImagePage),photo);
 
         }
+
+        private void RecargarAppBarButton_Click(object sender, object e)
+        {
+            CommandBar cb = sender as CommandBar;
+
+
+            Frame.Navigate(typeof(MainPage));
+
+        }
+
+
+
     }
 }

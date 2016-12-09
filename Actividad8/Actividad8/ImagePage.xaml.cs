@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -24,6 +27,9 @@ namespace Actividad8
     /// </summary>
     public sealed partial class ImagePage : Page
     {
+
+        Photo img;
+
         public ImagePage()
         {
             this.InitializeComponent();
@@ -33,7 +39,7 @@ namespace Actividad8
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            var img = (Photo)e.Parameter;
+            img = (Photo)e.Parameter;
             BitmapImage i = new BitmapImage();
             i.UriSource = new Uri(img.GetStringUrl());
             image.Source = i;
@@ -42,6 +48,39 @@ namespace Actividad8
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+
+        private async void ShareAppBarButton_Click(object sender, object e)
+        {
+            var data = $" Por favor revisa la siguiente imagen es muy interesante {img.GetStringUrl()}";
+
+            await ComposeEmail(data, null);
+        }
+
+
+        private async Task ComposeEmail( string messageBody, StorageFile attachmentFile)
+        {
+            var emailMessage = new Windows.ApplicationModel.Email.EmailMessage();
+            emailMessage.Body = messageBody;
+
+            if (attachmentFile != null)
+            {
+                var stream = Windows.Storage.Streams.RandomAccessStreamReference.CreateFromFile(attachmentFile);
+
+                var attachment = new Windows.ApplicationModel.Email.EmailAttachment(
+                    attachmentFile.Name,
+                    stream);
+
+                emailMessage.Attachments.Add(attachment);
+            }
+
+          
+          
+
+            await Windows.ApplicationModel.Email.EmailManager.ShowComposeNewEmailAsync(emailMessage);
+
+
         }
     }
 }
